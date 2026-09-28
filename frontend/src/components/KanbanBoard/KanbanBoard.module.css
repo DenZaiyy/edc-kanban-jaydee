@@ -1,0 +1,64 @@
+/* L'application occupe exactement la hauteur de l'écran : seul le contenu des colonnes défile. */
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  height: 100dvh;
+}
+
+.main {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+/* Poste fixe : 4 colonnes se partageant la largeur */
+.board {
+  /* Contient les textes masqués (position absolue) : seul le tableau défile, jamais la page */
+  position: relative;
+  display: grid;
+  flex: 1;
+  grid-auto-columns: minmax(270px, 1fr);
+  grid-auto-flow: column;
+  grid-template-rows: minmax(0, 1fr);
+  gap: 16px;
+  padding: 20px 24px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+}
+
+.state {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  max-width: 440px;
+  margin: auto;
+  padding: 24px;
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
+.stateTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* Tablette : colonnes de 360 px, défilement horizontal avec aimantation */
+@media (max-width: 1199px) {
+  .board {
+    grid-auto-columns: 360px;
+    gap: 12px;
+    padding: 16px;
+    scroll-padding-inline: 16px;
+    scroll-snap-type: x mandatory;
+  }
+}
+
+/* Téléphone : une colonne presque pleine largeur */
+@media (max-width: 599px) {
+  .board {
+    grid-auto-columns: calc(100% - 32px);
+    padding: 12px;
+  }
+}

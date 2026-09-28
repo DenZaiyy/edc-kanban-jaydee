@@ -1,0 +1,55 @@
+### Requêtes de test de l'API (extension VS Code « REST Client »)
+@api = http://localhost:3000/api
+
+### État de l'API
+GET {{api}}/health
+
+### Tableau complet : colonnes et tâches
+GET {{api}}/board
+
+### Détail d'une tâche
+GET {{api}}/tasks/task-1
+
+### Créer une tâche valide (201)
+POST {{api}}/tasks
+Content-Type: application/json
+
+{
+  "name": "OF-2440 · Injection grilles de ventilation",
+  "description": "Série de 500 pièces.",
+  "color": "orange",
+  "columnId": "todo"
+}
+
+### Créer une tâche invalide (400) : nom vide, couleur inconnue, champ non autorisé
+POST {{api}}/tasks
+Content-Type: application/json
+
+{
+  "name": "   ",
+  "color": "rose",
+  "columnId": "todo",
+  "id": "task-1"
+}
+
+### Déplacer une tâche vers « En cours »
+PATCH {{api}}/tasks/task-1
+Content-Type: application/json
+
+{
+  "columnId": "in-progress"
+}
+
+### Déplacer une deuxième tâche vers « En cours » : limite atteinte (409)
+PATCH {{api}}/tasks/task-2
+Content-Type: application/json
+
+{
+  "columnId": "in-progress"
+}
+
+### Supprimer une tâche (204)
+DELETE {{api}}/tasks/task-14
+
+### Tâche inexistante (404)
+GET {{api}}/tasks/task-999

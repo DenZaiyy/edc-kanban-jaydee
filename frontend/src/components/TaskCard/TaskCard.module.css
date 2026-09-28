@@ -1,0 +1,99 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px 12px 12px 16px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-card);
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+/* Bande de couleur de la tâche */
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background-color: var(--task-color, var(--task-grey));
+}
+
+.card:hover {
+  border-color: var(--color-border-strong);
+  box-shadow: var(--shadow-raised);
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+/* Bouton du titre étendu à toute la carte (motif « stretched link ») */
+.open {
+  display: -webkit-box;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  background: none;
+  font-weight: inherit;
+  text-align: left;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.open::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
+.open:focus-visible {
+  outline: none;
+}
+
+.open:focus-visible::after {
+  outline: 3px solid var(--color-focus);
+  outline-offset: -3px;
+}
+
+.description {
+  display: -webkit-box;
+  overflow: hidden;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--color-text-muted);
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-top: 4px;
+}
+
+.meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-right: auto;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+/* Les boutons de déplacement restent cliquables au-dessus du bouton étendu */
+.actions {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 6px;
+}

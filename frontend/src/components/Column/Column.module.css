@@ -1,0 +1,75 @@
+.column {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  border-radius: var(--radius-lg);
+  background-color: var(--color-column);
+  scroll-snap-align: start;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 12px 8px 16px;
+}
+
+.title {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.counter {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background-color: var(--color-surface);
+  font-size: 12px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-text-muted);
+}
+
+.counterFull {
+  background-color: var(--color-warning-bg);
+  color: var(--color-warning);
+}
+
+.limit {
+  margin-left: auto;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-warning);
+}
+
+.add {
+  margin-left: auto;
+}
+
+.limit + .add {
+  margin-left: 0;
+}
+
+/* Défilement vertical propre à la colonne : l'en-tête reste visible */
+.list {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 0;
+  margin: 0;
+  padding: 0 4px 12px 12px;
+  overflow-y: auto;
+  list-style: none;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+}
+
+.empty {
+  margin: 0 12px 12px;
+  padding: 24px 12px;
+  border: 2px dashed var(--color-border-strong);
+  border-radius: var(--radius-md);
+  text-align: center;
+  color: var(--color-text-muted);
+}

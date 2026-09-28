@@ -1,0 +1,45 @@
+{
+  "name": "jaydee-kanban-api",
+  "version": "1.0.0",
+  "description": "API REST du tableau Kanban de suivi des ordres de fabrication (Jaydee)",
+  "private": true,
+  "type": "commonjs",
+  "main": "src/server.js",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env src/server.js",
+    "dev": "node --watch --env-file-if-exists=.env src/server.js",
+    "test": "jest --verbose",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint .",
+    "format": "prettier --write ."
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "reporters": [
+      "default"
+    ],
+    "restoreMocks": true,
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!src/server.js"
+    ]
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.7.0",
+    "helmet": "^8.3.0",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.11.0",
+    "globals": "^17.12.0",
+    "jest": "^30.5.2",
+    "prettier": "^3.9.9",
+    "supertest": "^7.3.0"
+  }
+}

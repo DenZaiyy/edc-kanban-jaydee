@@ -1,0 +1,27 @@
+{
+  "name": "jaydee-kanban-web",
+  "version": "1.0.0",
+  "description": "Interface React du tableau Kanban de suivi des ordres de fabrication (Jaydee)",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "oxlint",
+    "format": "prettier --write src"
+  },
+  "dependencies": {
+    "@fontsource-variable/inter": "^5.3.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@vitejs/plugin-react": "^6.1.1",
+    "oxlint": "^1.81.0",
+    "prettier": "^3.9.9",
+    "vite": "^8.3.0"
+  }
+}
